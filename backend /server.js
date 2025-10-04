@@ -7,14 +7,14 @@ const WebSocket = require('ws');
 const http = require('http');
 const sharp = require('sharp');
 const CerebrasService = require('./services/cerebrasService');
-const LlamaService = require('./services/llamaService');
+// const LlamaService = require('./services/llamaService');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Services
 const cerebrasService = new CerebrasService();
-const llamaService = new LlamaService();
+// const llamaService = new LlamaService();
 
 // Middleware
 app.use(cors());

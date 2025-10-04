@@ -54,7 +54,7 @@ Provide a detailed JSON response with this EXACT format:
 Be extremely thorough and medically accurate. If nothing abnormal is found, say so clearly.`;
 
       const response = await this.client.chat.completions.create({
-        model: 'llama3.1-70b',
+        model: 'llama-3.3-70b',
         messages: [
           {
             role: 'system',
