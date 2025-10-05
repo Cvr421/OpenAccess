@@ -20,7 +20,7 @@ export default function MaternalHealth() {
     setIsAssessing(true);
 
     try {
-      const response = await fetch('http://localhost:3001/api/maternal-risk-assessment', {
+      const response = await fetch('https://openaccess.onrender.com/api/maternal-risk-assessment', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

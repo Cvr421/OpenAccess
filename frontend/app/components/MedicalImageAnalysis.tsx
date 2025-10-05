@@ -28,7 +28,7 @@ export default function MedicalImageAnalysis() {
       formData.append('image', selectedFile);
       formData.append('imageType', imageType);
 
-      const response = await fetch('http://localhost:3001/api/analyze-image', {
+      const response = await fetch('https://openaccess.onrender.com/api/analyze-image', {
         method: 'POST',
         body: formData
       });

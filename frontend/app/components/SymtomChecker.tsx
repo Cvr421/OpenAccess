@@ -23,7 +23,7 @@ export default function SymptomChecker() {
 
     setIsAnalyzing(true);
     try {
-      const response = await fetch('http://localhost:3001/api/symptom-checker', {
+      const response = await fetch('https://openaccess.onrender.com/api/symptom-checker', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ symptoms, language })

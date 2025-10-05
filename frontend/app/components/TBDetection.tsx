@@ -26,7 +26,7 @@ export default function TBDetection() {
       const formData = new FormData();
       formData.append('xray', selectedFile);
 
-      const response = await fetch('http://localhost:3001/api/detect-tb', {
+      const response = await fetch('https://openaccess.onrender.com/api/detect-tb', {
         method: 'POST',
         body: formData
       });

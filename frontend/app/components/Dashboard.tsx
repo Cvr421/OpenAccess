@@ -13,7 +13,7 @@ export default function Dashboard() {
 
   const fetchAnalytics = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/dashboard-analytics');
+      const response = await fetch('https://openaccess.onrender.com/api/dashboard-analytics');
       const data = await response.json();
       if (data.success) {
         setAnalytics(data.data);
