@@ -9,7 +9,7 @@ import DocGPT from './components/DocGPT';
 import Dashboard from './components/Dashboard';
 
 export default function HomePage() {
-  const [activeTab, setActiveTab] = useState<TabType>('image');
+  const [activeTab, setActiveTab] = useState<TabType>('maternal');
 
   return (
     <div>
@@ -17,7 +17,7 @@ export default function HomePage() {
 
       <main className="p-6">
         {activeTab === 'maternal' && <MaternalHealth />}
-        {activeTab === 'chatbot' && <DocGPT />}
+        {activeTab === 'docgpt' && <DocGPT />}
         {activeTab === 'image' && <ImageAnalysis />}
         {activeTab === 'tb' && <TbDetection />}
         {activeTab === 'dashboard' && <Dashboard />}

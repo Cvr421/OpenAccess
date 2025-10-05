@@ -1,5 +1,5 @@
 // backend/services/llamaService.js
-const { HfInference } = require('@huggingface/inference');
+// const { HfInference } = require('@huggingface/inference');
 const Cerebras = require('@cerebras/cerebras_cloud_sdk').default;
 
 class cerebras {

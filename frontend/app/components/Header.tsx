@@ -3,7 +3,7 @@
 import React from 'react';
 import { Activity, FileImage, Baby, MessageSquare, BarChart3, Heart } from 'lucide-react';
 
-export type TabType = 'image' | 'maternal' | 'tb' | 'chatbot' | 'dashboard';
+export type TabType =  'maternal' | 'docgpt'  |'image' |  'tb' | 'dashboard';
 
 interface HeaderProps {
   activeTab: TabType;
@@ -13,7 +13,7 @@ interface HeaderProps {
 export default function Header({ activeTab, setActiveTab }: HeaderProps) {
   const tabs = [
     { id: 'maternal' as TabType, name: 'Maternal Health', icon: Baby },
-    { id: 'chatbot' as TabType, name: 'Symptom Checker', icon: MessageSquare },
+    { id: 'docgpt' as TabType, name: 'DocGPT', icon: MessageSquare },
     { id: 'image' as TabType, name: 'Image Analysis', icon: FileImage },
     { id: 'tb' as TabType, name: 'TB Detection', icon: Activity },
     { id: 'dashboard' as TabType, name: 'Dashboard', icon: BarChart3 }
