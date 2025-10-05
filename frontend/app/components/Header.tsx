@@ -12,10 +12,10 @@ interface HeaderProps {
 
 export default function Header({ activeTab, setActiveTab }: HeaderProps) {
   const tabs = [
-    { id: 'image' as TabType, name: 'Image Analysis', icon: FileImage },
     { id: 'maternal' as TabType, name: 'Maternal Health', icon: Baby },
-    { id: 'tb' as TabType, name: 'TB Detection', icon: Activity },
     { id: 'chatbot' as TabType, name: 'Symptom Checker', icon: MessageSquare },
+    { id: 'image' as TabType, name: 'Image Analysis', icon: FileImage },
+    { id: 'tb' as TabType, name: 'TB Detection', icon: Activity },
     { id: 'dashboard' as TabType, name: 'Dashboard', icon: BarChart3 }
   ];
 
