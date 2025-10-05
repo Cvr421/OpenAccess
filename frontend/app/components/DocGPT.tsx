@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { MessageSquare, Loader2, Stethoscope } from 'lucide-react';
 
-export default function SymptomChecker() {
+export default function DocGPT() {
   const [symptoms, setSymptoms] = useState('');
   const [language, setLanguage] = useState('english');
   const [isAnalyzing, setIsAnalyzing] = useState(false);
@@ -49,7 +49,7 @@ export default function SymptomChecker() {
       <div className="bg-white rounded-xl shadow-lg p-6">
         <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
           <MessageSquare className="w-6 h-6 text-indigo-600" />
-          AI Medical Chatbot
+          AI Medical DocGPT
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
