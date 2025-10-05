@@ -64,7 +64,7 @@ export default function MedicalImageAnalysis() {
             <select
               value={imageType}
               onChange={(e) => setImageType(e.target.value)}
-              className="w-full p-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none"
+              className="w-full p-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none text-black"
             >
               <option value="xray">X-Ray</option>
               <option value="ct">CT Scan</option>
