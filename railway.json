@@ -1,8 +1,0 @@
-{
-  "build": {
-    "rootDirectory": "backend",
-    "installCommand": "npm install",
-    "buildCommand": "npm run build || echo 'No build step'",
-    "startCommand": "npm start"
-  }
-}
