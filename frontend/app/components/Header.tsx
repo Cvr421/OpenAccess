@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import React from 'react';
 import { Activity, FileImage, Baby, MessageSquare, BarChart3, Heart } from 'lucide-react';
@@ -30,7 +30,7 @@ export default function Header({ activeTab, setActiveTab }: HeaderProps) {
                 <Heart className="w-8 h-8 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-gray-800">MedAI Swasthya</h1>
+                <h1 className="text-2xl font-bold text-gray-800">OpenAccess</h1>
                 <p className="text-sm text-gray-600">AI-Powered Healthcare for Rural India</p>
               </div>
             </div>
@@ -69,3 +69,5 @@ export default function Header({ activeTab, setActiveTab }: HeaderProps) {
     </>
   );
 }
+
+

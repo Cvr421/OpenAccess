@@ -1,17 +1,27 @@
 'use client';
 
+import React, { useState } from 'react';
+import Header, { TabType } from './components/Header';
+import ImageAnalysis from './components/MedicalImageAnalysis';
+import MaternalHealth from './components/MaternalHealth';
+import TbDetection from './components/TBDetection';
+import Chatbot from './components/SymtomChecker';
+import Dashboard from './components/Dashboard';
 
+export default function HomePage() {
+  const [activeTab, setActiveTab] = useState<TabType>('image');
 
-import Image from "next/image";
-import Header, { TabType } from "./components/Header";
-import MedicalImageAnalysis from "./components/MedicalImageAnalysis";
-export default function Home() {
   return (
-    <>
-     <Header activeTab={"image"} setActiveTab={function (tab: TabType): void {
-        throw new Error("Function not implemented.");
-      } } />
-     <MedicalImageAnalysis />
-</>
+    <div>
+      <Header activeTab={activeTab} setActiveTab={setActiveTab} />
+
+      <main className="p-6">
+        {activeTab === 'image' && <ImageAnalysis />}
+        {activeTab === 'maternal' && <MaternalHealth />}
+        {activeTab === 'tb' && <TbDetection />}
+        {activeTab === 'chatbot' && <Chatbot />}
+        {activeTab === 'dashboard' && <Dashboard />}
+      </main>
+    </div>
   );
 }

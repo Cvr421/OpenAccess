@@ -7,14 +7,15 @@ const WebSocket = require('ws');
 const http = require('http');
 const sharp = require('sharp');
 const CerebrasService = require('./services/cerebrasService');
-// const LlamaService = require('./services/llamaService');
+
+const cerebras = require('./services/cerebras');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Services
 const cerebrasService = new CerebrasService();
-// const llamaService = new LlamaService();
+const Cerebras= new cerebras();
 
 // Middleware
 app.use(cors());
@@ -93,7 +94,7 @@ async function handleSymptomAnalysis(data, ws) {
   try {
     ws.send(JSON.stringify({ type: 'processing', message: 'Analyzing symptoms...' }));
     
-    const analysis = await llamaService.analyzeSymptoms(data.symptoms, data.language || 'english');
+    const analysis = await Cerebras.analyzeSymptoms(data.symptoms, data.language || 'english');
     
     ws.send(JSON.stringify({
       type: 'symptom_analysis_result',
@@ -109,7 +110,7 @@ async function handleMaternalRisk(data, ws) {
   try {
     ws.send(JSON.stringify({ type: 'processing', message: 'Assessing maternal health risk...' }));
     
-    const riskAssessment = await llamaService.predictMaternalRisk(data.vitalSigns);
+    const riskAssessment = await Cerebras.predictMaternalRisk(data.vitalSigns);
     
     ws.send(JSON.stringify({
       type: 'maternal_risk_result',
@@ -245,7 +246,7 @@ app.post('/api/maternal-risk-assessment', async (req, res) => {
 
     console.log('🤰 Maternal health risk assessment...');
 
-    const riskAssessment = await llamaService.predictMaternalRisk(vitalSigns);
+    const riskAssessment = await Cerebras.predictMaternalRisk(vitalSigns);
 
     res.json({
       success: true,
@@ -274,7 +275,7 @@ app.post('/api/symptom-checker', async (req, res) => {
 
     console.log(`🩺 Symptom analysis in ${language}...`);
 
-    const analysis = await llamaService.analyzeSymptoms(symptoms, language);
+    const analysis = await Cerebras.analyzeSymptoms(symptoms, language);
 
     res.json({
       success: true,
@@ -300,7 +301,7 @@ app.post('/api/treatment-plan', async (req, res) => {
 
     console.log('💊 Generating treatment plan...');
 
-    const treatmentPlan = await llamaService.generateTreatmentPlan(diagnosis, patientProfile);
+    const treatmentPlan = await Cerebras.generateTreatmentPlan(diagnosis, patientProfile);
 
     res.json({
       success: true,
@@ -328,7 +329,7 @@ app.post('/api/predict-outbreak', async (req, res) => {
 
     console.log('📊 Predicting disease outbreak...');
 
-    const outbreakPrediction = await llamaService.predictOutbreak(diseaseData);
+    const outbreakPrediction = await Cerebras.predictOutbreak(diseaseData);
 
     res.json({
       success: true,
@@ -494,7 +495,7 @@ app.get('/api/test-llama', async (req, res) => {
   try {
     console.log('🧪 Testing Llama service...');
     
-    const testAnalysis = await llamaService.analyzeSymptoms('headache and fever', 'english');
+    const testAnalysis = await Cerebras.analyzeSymptoms('headache and fever', 'english');
     
     res.json({
       success: true,
@@ -554,7 +555,8 @@ server.listen(PORT, () => {
   console.log('  GET  /api/dashboard-analytics - Analytics dashboard');
   console.log('  POST /api/batch-analyze - Batch image processing');
   console.log('🚀 ============================================\n');
-  
+  console.log('Hugging Face Key:', process.env.HUGGINGFACE_API_KEY ? '✅ Loaded' : '❌ Missing');
+
   // Check API keys
   if (!process.env.CEREBRAS_API_KEY) {
     console.error('⚠️  WARNING: CEREBRAS_API_KEY not configured!');
